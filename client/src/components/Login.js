@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Input, Form, Button } from "reactstrap";
 
 const Login = props => {
   const [login, setLogin] = useState({
@@ -48,23 +49,30 @@ const Login = props => {
   } else {
     return (
       <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            name="username"
-            type="text"
-            placeholder="Username"
-            value={login.credentials.username}
-            onChange={handleChange}
-          />
-          <input
-            name="password"
-            type="text"
-            placeholder="Password"
-            value={login.credentials.password}
-            onChange={handleChange}
-          />
-          <button>Log In</button>
-        </form>
+        <h1>Enter your Info Below</h1>
+        <div className="login-cont">
+          <form onSubmit={handleSubmit}>
+            <Input
+              style={{ width: "50%", marginBottom: "2%" }}
+              name="username"
+              type="text"
+              placeholder="Username"
+              value={login.credentials.username}
+              onChange={handleChange}
+            />
+            <Input
+              style={{ width: "50%", marginBottom: "2%" }}
+              name="password"
+              type="text"
+              placeholder="Password"
+              value={login.credentials.password}
+              onChange={handleChange}
+            />
+            <Button color="primary" style={{ marginRight: "6%" }}>
+              Log In
+            </Button>
+          </form>
+        </div>
       </div>
     );
   }
